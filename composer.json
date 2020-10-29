@@ -1,0 +1,56 @@
+{
+    "name": "resto2web/core",
+    "description": "Core package for Resto2Web functionalities",
+    "keywords": [
+        "resto2web",
+        "core"
+    ],
+    "homepage": "https://github.com/resto2web/core",
+    "license": "MIT",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Lucas Houssa",
+            "email": "lucas@retinens.be",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^7.1",
+        "artesaos/seotools": "^0.19.1",
+        "illuminate/support": "^8.0",
+        "livewire/livewire": "^2.3"
+    },
+    "require-dev": {
+        "orchestra/testbench": "^6.0",
+        "phpunit/phpunit": "^8.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Resto2web\\Core\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Resto2web\\Core\\Tests\\": "tests"
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit",
+        "test-coverage": "vendor/bin/phpunit --coverage-html coverage"
+
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Resto2web\\Core\\CoreServiceProvider"
+            ],
+            "aliases": {
+                "Core": "Resto2web\\Core\\CoreFacade"
+            }
+        }
+    }
+}
