@@ -16,13 +16,13 @@
 </head>
 
 <body class="">
-@include('resto2web-core::layout.loader')
+@include('resto2web::layout.loader')
 <div class="justify-content-center d-flex w-100">
     @include('cookieConsent::index')
 </div>
-@include('resto2web-core::layout.header')
+@include('resto2web::layout.header')
 @yield('content')
-@include('resto2web-core::layout.footer')
+@include('resto2web::layout.footer')
 @livewireScripts
 
 <script src="{{mix('/app/js/manifest.js')}}"></script>

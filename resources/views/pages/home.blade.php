@@ -1,4 +1,4 @@
-@extends('resto2web-core::layout.app')
+@extends('resto2web::layout.app')
 
 @section('content')
 Home

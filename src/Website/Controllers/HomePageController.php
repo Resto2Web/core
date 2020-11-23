@@ -1,10 +1,11 @@
 <?php
 
 
-namespace Resto2web\Core\Http\Controllers;
+namespace Resto2web\Core\Website\Controllers;
 
 
 use Artesaos\SEOTools\Traits\SEOTools;
+use Resto2web\Core\Common\Controllers\Controller;
 
 class HomePageController extends Controller
 {
@@ -12,6 +13,6 @@ class HomePageController extends Controller
     public function __invoke()
     {
         $this->seo()->setTitle('Accueil');
-        return view('resto2web-core::pages.home');
+        return view('resto2web::pages.home');
     }
 }

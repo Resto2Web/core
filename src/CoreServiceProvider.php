@@ -15,7 +15,7 @@ class CoreServiceProvider extends ServiceProvider
          * Optional methods to load your package assets
          */
         // $this->loadTranslationsFrom(__DIR__.'/../resources/lang', 'core');
-         $this->loadViewsFrom(__DIR__.'/../resources/views', 'resto2web-core');
+         $this->loadViewsFrom(__DIR__.'/../resources/views', 'resto2web');
         // $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
          $this->loadRoutesFrom(__DIR__.'/routes/web.php');
 

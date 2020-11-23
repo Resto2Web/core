@@ -1,6 +1,6 @@
 <?php
 
-namespace Resto2web\Core\Http\Controllers;
+namespace Resto2web\Core\Common\Controllers;
 
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Routing\Controller as BaseController;
