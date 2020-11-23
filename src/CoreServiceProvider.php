@@ -2,7 +2,9 @@
 
 namespace Resto2web\Core;
 
+use Illuminate\Contracts\Http\Kernel;
 use Illuminate\Support\ServiceProvider;
+use Resto2web\Core\Common\Middlewares\WebsiteActive;
 
 class CoreServiceProvider extends ServiceProvider
 {
@@ -15,13 +17,14 @@ class CoreServiceProvider extends ServiceProvider
          * Optional methods to load your package assets
          */
         // $this->loadTranslationsFrom(__DIR__.'/../resources/lang', 'core');
-         $this->loadViewsFrom(__DIR__.'/../resources/views', 'resto2web');
+        $this->loadViewsFrom(__DIR__.'/../resources/views', 'resto2web');
         // $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
-         $this->loadRoutesFrom(__DIR__.'/routes/web.php');
+        $this->loadRoutesFrom(__DIR__.'/routes/web.php');
+        $this->loadRoutesFrom(__DIR__.'/routes/api.php');
 
         if ($this->app->runningInConsole()) {
             $this->publishes([
-                __DIR__.'/../config/resto2web/config.php' => config_path('resto2web/core.php'),
+                __DIR__.'/../config/resto2web/core.php' => config_path('resto2web/core.php'),
             ], 'config');
 
             // Publishing the views.
@@ -41,7 +44,10 @@ class CoreServiceProvider extends ServiceProvider
 
             // Registering package commands.
             // $this->commands([]);
+
         }
+        $kernel = $this->app->make(Kernel::class);
+        $kernel->pushMiddleware(WebsiteActive::class);
     }
 
     /**
@@ -50,7 +56,7 @@ class CoreServiceProvider extends ServiceProvider
     public function register()
     {
         // Automatically apply the package configuration
-        $this->mergeConfigFrom(__DIR__.'/../config/resto2web/config.php', 'core');
+        $this->mergeConfigFrom(__DIR__.'/../config/resto2web/core.php', 'core');
 
         // Register the main class to use with the facade
         $this->app->singleton('core', function () {
