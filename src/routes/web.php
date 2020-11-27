@@ -1,14 +1,14 @@
 <?php
 
+use Resto2web\Core\Common\Controllers\DisabledWebsitePageController;
 use Resto2web\Core\Website\Controllers\ContactPageController;
 use Resto2web\Core\Website\Controllers\HomePageController;
 
-Route::get('/', HomePageController::class)->name('home');
-Route::get('/contact', ContactPageController::class)->name('contact');
+if (setting()->get('site_active')) {
+    Route::get('/', HomePageController::class)->name('home');
+    Route::get('/contact', ContactPageController::class)->name('contact');
+} else {
+    Route::get('/', DisabledWebsitePageController::class)->name('home');
+}
 
-Route::get('/disabled-website', function () {
-    if (setting()->get('site_active')) {
-        return redirect(route('home'));
-    }
-    return view('resto2web::pages.disabled-website');
-})->name('disabled-website');
+

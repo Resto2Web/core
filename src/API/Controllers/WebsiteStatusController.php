@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Response;
 use Resto2web\Core\Common\Controllers\Controller;
 
-class WebsiteActiveStateController extends Controller
+class WebsiteStatusController extends Controller
 {
     public function __invoke(Request $request)
     {

@@ -11,7 +11,8 @@ use Illuminate\Foundation\Http\Middleware\VerifyCsrfToken as Middleware;
 class WebsiteActive
 {
     private array $except = [
-        'api/*'
+        'api/*',
+        '/'
     ];
 
     /**
@@ -24,11 +25,10 @@ class WebsiteActive
     public function handle(Request $request, Closure $next)
     {
         if (setting()->get('site_active')
-            || URL::current() == route('disabled-website')
             || $this->inExceptArray($request)) {
             return $next($request);
         } else {
-            return redirect(route('disabled-website'));
+            return redirect(route('home'));
         }
     }
 
