@@ -18,7 +18,7 @@ class CoreServiceProvider extends ServiceProvider
          */
         // $this->loadTranslationsFrom(__DIR__.'/../resources/lang', 'core');
         $this->loadViewsFrom(__DIR__.'/../resources/views', 'resto2web');
-        // $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
+        $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
         $this->loadRoutesFrom(__DIR__.'/routes/web.php');
         $this->loadRoutesFrom(__DIR__.'/routes/api.php');
 
@@ -56,7 +56,7 @@ class CoreServiceProvider extends ServiceProvider
     public function register()
     {
         // Automatically apply the package configuration
-        $this->mergeConfigFrom(__DIR__.'/../config/resto2web/core.php', 'core');
+        $this->mergeConfigFrom(__DIR__.'/../config/resto2web/core.php', 'resto2web.core');
 
         // Register the main class to use with the facade
         $this->app->singleton('core', function () {
