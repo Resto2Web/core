@@ -32,10 +32,7 @@
     "autoload": {
         "psr-4": {
             "Resto2web\\Core\\": "src"
-        },
-        "files": [
-            "src/helpers.php"
-        ]
+        }
     },
     "autoload-dev": {
         "psr-4": {
