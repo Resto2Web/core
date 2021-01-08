@@ -17,12 +17,12 @@
     ],
     "require": {
         "php": "^7.4",
-        "anlutro/l4-settings": "^1.0",
-        "artesaos/seotools": "^0.19.1",
+        "artesaos/seotools": "^0.20",
         "illuminate/support": "^8.0",
         "laravel/ui": "^3.1",
         "livewire/livewire": "^2.3",
-        "spatie/laravel-cookie-consent": "^2.12"
+        "spatie/laravel-honeypot": "^3.0",
+        "spatie/laravel-settings": "^1.0"
     },
     "require-dev": {
         "orchestra/canvas": "^6.1",
@@ -32,7 +32,10 @@
     "autoload": {
         "psr-4": {
             "Resto2web\\Core\\": "src"
-        }
+        },
+        "files": [
+            "src/helpers.php"
+        ]
     },
     "autoload-dev": {
         "psr-4": {

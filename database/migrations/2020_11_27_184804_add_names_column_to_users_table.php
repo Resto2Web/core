@@ -17,6 +17,7 @@ class AddNamesColumnToUsersTable extends Migration
             $table->dropColumn('name');
             $table->string('first_name');
             $table->string('last_name');
+            $table->string('phone_number');
             $table->string('type')->default('default');
         });
     }

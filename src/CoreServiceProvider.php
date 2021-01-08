@@ -21,7 +21,6 @@ class CoreServiceProvider extends ServiceProvider
         $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
         $this->loadRoutesFrom(__DIR__.'/routes/web.php');
         $this->loadRoutesFrom(__DIR__.'/routes/api.php');
-
         if ($this->app->runningInConsole()) {
             $this->publishes([
                 __DIR__.'/../config/resto2web/core.php' => config_path('resto2web/core.php'),
@@ -55,6 +54,7 @@ class CoreServiceProvider extends ServiceProvider
      */
     public function register()
     {
+
         // Automatically apply the package configuration
         $this->mergeConfigFrom(__DIR__.'/../config/resto2web/core.php', 'resto2web.core');
 
@@ -63,4 +63,5 @@ class CoreServiceProvider extends ServiceProvider
             return new Core;
         });
     }
+
 }

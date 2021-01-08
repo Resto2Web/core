@@ -7,17 +7,19 @@ namespace Resto2web\Core\API\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Response;
 use Resto2web\Core\Common\Controllers\Controller;
+use Resto2web\Core\Settings\GeneralSettings;
 
 class WebsiteStatusController extends Controller
 {
     public function __invoke(Request $request)
     {
-        setting()->set('site_active', (bool) $request->input('active'));
-        setting()->save();
+        $settings = app(GeneralSettings::class);
+        $settings->siteActive = (bool) $request->input('active');
+        $settings->save();
         return Response::json(
             [
                 'status' => 'ok',
-                'active' => setting()->get('site_active')
+                'active' => $settings->siteActive
             ],
             200);
     }
