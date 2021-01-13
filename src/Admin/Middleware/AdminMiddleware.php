@@ -6,21 +6,21 @@ namespace Resto2web\Core\Admin\Middleware;
 
 use Closure;
 use Illuminate\Support\Facades\Auth;
+use Resto2web\Core\Domain\Users\Models\User;
 
 class AdminMiddleware
 {
     public function handle($request, Closure $next)
     {
         auth()->setDefaultDriver(app('Resto2WebGuard'));
-        if (!Auth::guest()) {
+        if (Auth::user()) {
+            /** @var User $user */
             $user = Auth::user();
-            if ($user->type == 'admin') {
-                return $next($request);
-            }
-            return redirect('/');
+            abort_unless($user->type == 'admin',403);
+            return $next($request);
+        }else{
+            return redirect()->route('admin.login');
         }
-        $urlLogin = route('admin.login');
 
-        return redirect()->guest($urlLogin);
     }
 }

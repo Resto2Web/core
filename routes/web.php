@@ -12,6 +12,8 @@ use Resto2web\Core\Website\Controllers\ContactPageController;
 use Resto2web\Core\Website\Controllers\HomePageController;
 use Spatie\Honeypot\ProtectAgainstSpam;
 
+Route::redirect('/home','/');
+
 Route::middleware('web')->group(function () {
     Route::get('/', HomePageController::class)->name('home');
     Route::get('/contact', ContactPageController::class)->name('contact');

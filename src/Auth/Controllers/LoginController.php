@@ -46,7 +46,7 @@ class LoginController extends Controller
         if (request()->get('back_to')) {
             session()->put('url.intended', request()->get('back_to'));
         }
-        return view('resto2web::auth.login');
+        return view('resto2web-auth::.login');
 
     }
 }

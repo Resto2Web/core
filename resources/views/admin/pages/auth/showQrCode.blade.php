@@ -1,4 +1,4 @@
-@extends('resto2web-admin::app.layout.layout')
+@extends('resto2web-admin::.layout.layout')
 @section('breadcrumbs')
     <li class="breadcrumb-item">
         <a href="{{ route('admin.settings.index') }}">Paramètres</a>
@@ -9,7 +9,7 @@
 @endsection
 
 @section('content')
-    @include('resto2web-admin::app.pages.settings.partials.topMenu')
+    @include('resto2web-admin::.pages.settings.partials.topMenu')
 
     <div class="card">
         <div class="card-body">

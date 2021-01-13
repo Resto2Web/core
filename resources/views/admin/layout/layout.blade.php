@@ -14,17 +14,17 @@
 </head>
 <body class="hold-transition layout-fixed sidebar-mini">
 <div class="wrapper">
-    @include('resto2web-admin::app.layout.header')
-    @include('resto2web-admin::app.layout.sidebar')
+    @include('resto2web-admin::.layout.header')
+    @include('resto2web-admin::.layout.sidebar')
     <div class="content-wrapper">
-        @include('resto2web-admin::app.layout.content-header')
+        @include('resto2web-admin::.layout.content-header')
         <section class="content">
             <div class="container-fluid">
                 @yield('content')
             </div>
         </section>
     </div>
-    @include('resto2web-admin::app.layout.footer')
+    @include('resto2web-admin::.layout.footer')
 </div>
 
 

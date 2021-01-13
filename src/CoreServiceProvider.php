@@ -25,7 +25,8 @@ class CoreServiceProvider extends ServiceProvider
         $router->aliasMiddleware('admin-seo', AdminSeoMiddleware::class);
 
         // $this->loadTranslationsFrom(__DIR__.'/../resources/lang', 'core');
-        $this->loadViewsFrom(__DIR__.'/../resources/views', 'resto2web');
+        $this->loadViewsFrom(__DIR__.'/../resources/views/app', 'resto2web');
+        $this->loadViewsFrom(__DIR__.'/../resources/views/auth', 'resto2web-auth');
         $this->loadViewsFrom(__DIR__.'/../resources/views/admin', 'resto2web-admin');
 
         $this->loadMigrationsFrom(__DIR__.'/../database/migrations');

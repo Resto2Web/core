@@ -1,4 +1,4 @@
-@extends('resto2web-admin::auth.layout.auth')
+@extends('resto2web-admin::layout.auth-layout')
 @section('content')
     <div class="d-flex w-100" style="min-height: 100vh">
         <div class="container align-self-center">

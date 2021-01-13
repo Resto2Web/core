@@ -16,10 +16,10 @@
 </head>
 
 <body class="">
-@include('resto2web::app.layout.loader')
-@include('resto2web::app.layout.header')
+@include('resto2web::layout.loader')
+@include('resto2web::layout.header')
 @yield('content')
-@include('resto2web::app.layout.footer')
+@include('resto2web::layout.footer')
 @livewireScripts
 
 <script src="{{mix('/app/js/manifest.js')}}"></script>

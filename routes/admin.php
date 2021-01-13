@@ -3,7 +3,7 @@
 use Resto2web\Core\Admin\Controllers\HomePageController;
 use Resto2web\Core\Admin\Settings\Controllers\GeneralSettingsPageController;
 use Resto2web\Core\Admin\Settings\Controllers\SettingsIndexPageController;
-use Resto2web\Core\Auth\Controllers\AdminAuthController;
+use Resto2web\Core\Auth\Controllers\AdminLoginController;
 use Resto2web\Core\Auth\Controllers\QrCodeAuthController;
 use Resto2web\Core\Auth\Controllers\TokenAuthController;
 use Resto2web\Core\Domain\Users\Models\User;
@@ -17,9 +17,9 @@ Route::group(['middleware' => 'api'], function () {
     Route::get('qr-code/auth/{user}', [QrCodeAuthController::class, 'getToken'])->name('admin.qrcode-auth');
 });
 Route::group(['as' => 'admin.', 'prefix' => 'admin', 'middleware' => ['web', 'admin-seo']], function () {
-    Route::get('/login', [AdminAuthController::class, 'login'])->name('login');
+    Route::get('/login', [AdminLoginController::class, 'login'])->name('login');
     Route::middleware('admin')->group(function () {
-        Route::post('/logout', [AdminAuthController::class, 'logout'])->name('logout');
+        Route::post('/logout', [AdminLoginController::class, 'logout'])->name('logout');
 
         Route::get('/', HomePageController::class)->name('index');
         Route::get('/settings', [SettingsIndexPageController::class, 'index'])->name('settings.index');

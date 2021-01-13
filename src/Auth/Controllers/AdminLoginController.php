@@ -7,7 +7,7 @@ use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Support\Facades\Auth;
 use Resto2web\Core\Common\Controllers\Controller;
 
-class AdminAuthController extends Controller
+class AdminLoginController extends Controller
 {
     use AuthenticatesUsers;
     public function login()
@@ -16,7 +16,7 @@ class AdminAuthController extends Controller
             return redirect()->route('admin.index');
         }
 
-        return view('resto2web-admin::auth.login');
+        return view('resto2web-auth::admin-login');
     }
 
 

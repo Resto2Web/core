@@ -1,4 +1,4 @@
-@extends('app.layouts.auth-layout')
+@extends('resto2web::.layout.auth-layout')
 
 @section('content')
     <div class="c-app flex-row align-items-center text-dark">
