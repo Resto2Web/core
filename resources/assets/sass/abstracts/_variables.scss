@@ -1,0 +1,68 @@
+//COLORS
+$white: #fff !default;
+$orange: #faba32;
+$red: #7e0130;
+$light: #eff2f6;
+$main-bg:$light;
+$dark: #131313;
+$blue: #262e3a;
+$info:$blue;
+$primary: $orange;
+$secondary: $red;
+$green:#519872;
+$tertiary:#fdedc7;
+$theme-colors: (
+    "tertiary": $tertiary,
+    "white": #fff
+);
+
+// Custom Colors
+$brand-google: #ea4335;
+$brand-facebook: #3b5998;
+$navbar-light-color:$dark;
+
+// MISC
+$enable-responsive-font-sizes:true;
+$headings-margin-bottom: 0;
+$border-radius:.75rem;
+$link-decoration:none;
+$card-border-width:0;
+$dropdown-border-width:0;
+
+//FONTS
+$font-family-sans-serif: "Cabin", -apple-system;
+$headings-font-family: "Nunito", -apple-system;
+$headings-font-weight:800;
+$font-weight-base:600;
+$lead-font-weight:$font-weight-base;
+$dropdown-font-size:1.1rem;
+
+// Adjust column spacing for symmetry
+$spacer: 1rem;
+$grid-gutter-width: $spacer * 1.5;
+
+// Transitions
+$transition-collapse: height .15s ease !default;
+
+$spacers: () !default;
+$spacers: map-merge((
+    -9: -($spacer * 10),
+    -8: -($spacer * 8),
+    -7: -($spacer * 6),
+    -6: -($spacer * 4.5),
+    -5: -($spacer * 3),
+    -4: -($spacer * 1.5),
+    -3: -$spacer,
+    -2: -($spacer * .5),
+    -1: -($spacer * .25),
+    0: 0,
+    1: ($spacer * .25),
+    2: ($spacer * .5),
+    3: $spacer,
+    4: ($spacer * 1.5),
+    5: ($spacer * 3),
+    6: ($spacer * 4.5),
+    7: ($spacer * 6),
+    8: ($spacer * 8),
+    9: ($spacer * 10)
+), $spacers);

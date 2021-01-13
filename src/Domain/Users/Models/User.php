@@ -5,6 +5,7 @@ namespace Resto2web\Core\Domain\Users\Models;
 
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Laravel\Sanctum\HasApiTokens;
 use Str;
 
 /**
@@ -17,6 +18,7 @@ use Str;
 class User extends Authenticatable
 {
     use Notifiable;
+    use HasApiTokens;
 
     protected static function boot()
     {
@@ -57,5 +59,10 @@ class User extends Authenticatable
     public function getFullNameAttribute()
     {
         return $this->first_name." ".$this->last_name;
+    }
+
+    public function addresses()
+    {
+        return $this->hasMany(UserAddress::class);
     }
 }

@@ -1,4 +1,4 @@
-@extends('resto2web::layout.auth-layout')
+@extends('resto2web::app.layout.auth-layout')
 @section('content')
     <div class="c-app flex-row align-items-center text-dark py-5">
         <div class="container">
@@ -8,7 +8,7 @@
                         <div class="card p-4">
                             <div class="card-body bg-white text-center">
                                 <h1>{{ __('Login') }}</h1>
-                                                                @include('resto2web::layout.alerts')
+                                                                @include('resto2web::app.layout.alerts')
                                 <div class="row justify-content-center">
                                     <div class="col-md-8">
                                         <form method="POST" action="{{ route('login') }}" class="form-validate">

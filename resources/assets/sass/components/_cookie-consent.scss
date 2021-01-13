@@ -1,0 +1,16 @@
+.cookie-consent{
+  //@include alert-variant($dark, $dar, $light);
+  @extend .mx-auto;
+  position: fixed;
+  bottom: 0;
+  z-index: 1000;
+  @extend .alert;
+  @extend .alert-dark;
+}
+
+.cookie-consent__agree
+{
+  @extend .btn;
+  @extend .btn-sm;
+  @extend .btn-primary;
+}

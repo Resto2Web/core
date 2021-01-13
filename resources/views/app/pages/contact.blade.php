@@ -1,4 +1,4 @@
-@extends('resto2web::layout.app')
+@extends('resto2web::app.layout.app')
 
 @section('content')
 Contact

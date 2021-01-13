@@ -1,0 +1,22 @@
+
+//Nav
+@media screen and (min-width: 600px) {
+    .nav {
+        height: 64px !important;
+    }
+}
+
+.burger {
+    transition-property: all;
+    transition-duration: 1s;
+}
+
+.nav {
+    transition-property: all;
+    transition-duration: 1s;
+}
+
+.full-nav {
+    width: 94vw !important;
+    //height: 65px !important;
+}

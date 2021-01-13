@@ -9,5 +9,6 @@ class CreateGeneralSettings extends SettingsMigration
         $this->migrator->add('general.siteActive', true);
         $this->migrator->add('general.phoneNumber', '');
         $this->migrator->add('general.email', '');
+        $this->migrator->add('general.facebook_url', '');
     }
 }
