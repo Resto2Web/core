@@ -17,8 +17,9 @@ Route::group(['as' => 'admin.', 'prefix' => 'admin', 'middleware' => ['web', 'ad
         Route::get('/settings', [SettingsIndexPageController::class, 'index'])->name('settings.index');
         Route::get('/settings/general', [GeneralSettingsPageController::class, 'show'])->name('settings.general');
         Route::patch('/settings/general', [GeneralSettingsPageController::class, 'update'])->name('settings.general');
-
         Route::get('qr-code', [QrCodeAuthController::class, 'show'])->name('qrcode');
+        Route::get('logs', '\Rap2hpoutre\LaravelLogViewer\LogViewerController@index');
+
     });
 });
 
