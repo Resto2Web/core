@@ -113,9 +113,9 @@
             </a>
             <!-- Dropdown - User Information -->
             <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-{{--                <a class="dropdown-item" href="{{ route('admin.account.profile') }}">--}}
-{{--                    Paramètres de compte--}}
-{{--                </a>--}}
+                <a class="dropdown-item" href="{{ config('resto2web.core.platform_url') }}/dashboard">
+                    Paramètres de compte
+                </a>
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item" href="{{ route('admin.logout') }}"
                    onclick="event.preventDefault(); $('#logout-form').submit();">

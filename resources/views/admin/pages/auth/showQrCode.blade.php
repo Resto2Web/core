@@ -13,7 +13,10 @@
 
     <div class="card">
         <div class="card-body">
-            <img src="{{ $qrCode->writeDataUri() }}" class="img-fluid" alt="">
+            <img src="https://chart.googleapis.com/chart?cht=qr&chs=300x300&chl={{
+    json_encode([
+            'url' => $url
+        ]) }}" class="img-fluid" alt="">
             <br>
             {{ $url }}
         </div>

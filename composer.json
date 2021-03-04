@@ -16,17 +16,17 @@
         }
     ],
     "require": {
-        "php": "^7.4",
+        "php": "^7.4|^8.0",
+        "ext-json": "*",
         "artesaos/seotools": "^0.20",
+        "chillerlan/php-qrcode": "^4.3",
         "illuminate/support": "^8.0",
+        "laravel/sanctum": "^2.8",
         "laravel/ui": "^3.1",
         "livewire/livewire": "^2.3",
         "spatie/laravel-honeypot": "^3.0",
         "spatie/laravel-settings": "^1.0",
-        "yoeunes/notify": "^1.0",
-        "ext-json": "*",
-        "laravel/sanctum": "^2.8",
-        "endroid/qr-code": "^3.9"
+        "yoeunes/notify": "^1.0"
     },
     "require-dev": {
         "orchestra/canvas": "^6.1",

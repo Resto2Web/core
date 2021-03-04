@@ -12,16 +12,11 @@ class QrCodeAuthController extends Controller
 {
     public function show()
     {
-        $url = Url::temporarySignedRoute('admin.qrcode-auth',now()->addMinutes(5),['user' => Auth::id()]);
-        $url = Url::route('admin.qrcode-auth',['user' => Auth::id()]);
-        $url = str_replace('resto.test',"e29e2330e575.ngrok.io",$url);
-        $qrCode = new QrCode(json_encode([
-            'url' => $url
-        ]));
-        $qrCode->setWriterByName('png');
-        $qrCode->setEncoding('UTF-8');
+        $url = Url::temporarySignedRoute('admin.qrcode-auth',now()->addMinutes(5),['user' => Auth::user()->uuid]);
+        $url = Url::route('admin.qrcode-auth',['user' => Auth::user()->uuid]);
+        $url = str_replace('resto.test',"c4a089be73b4.ngrok.io",$url);
         return view('resto2web-admin::pages.auth.showQrCode')
-            ->with(compact('qrCode','url'));
+            ->with(compact('url'));
     }
 
     public function getToken(User $user)
@@ -31,7 +26,7 @@ class QrCodeAuthController extends Controller
         }
         $token = $user->createToken('mobile')->plainTextToken;
         $url = URL::secure('/');
-        $url = "https://a8de3e995092.ngrok.io";
+        $url = "https://c4a089be73b4.ngrok.io";
         return [
             'token' => $token,
             'email'=> $user->email,

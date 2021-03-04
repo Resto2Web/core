@@ -31,8 +31,10 @@ class CoreServiceProvider extends ServiceProvider
 
         $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
         $this->loadRoutesFrom(__DIR__.'/../routes/web.php');
+        $this->loadRoutesFrom(__DIR__.'/../routes/auth.php');
         $this->loadRoutesFrom(__DIR__.'/../routes/admin.php');
         $this->loadRoutesFrom(__DIR__.'/../routes/api.php');
+
         if ($this->app->runningInConsole()) {
             $this->publishes([
                 __DIR__.'/../config/resto2web/core.php' => config_path('resto2web/core.php'),

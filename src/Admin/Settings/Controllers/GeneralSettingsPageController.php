@@ -27,7 +27,7 @@ class GeneralSettingsPageController extends Controller
         $settings = app(GeneralSettings::class);
         $settings->email = $request->input('email');
         $settings->phoneNumber = $request->input('phoneNumber');
-        $settings->facebook_url = $request->input('facebook_url');
+        $settings->facebook_url = $request->input('facebook_url') ?? '';
         $settings->save();
         notify()->addNotification('success','Modifications enregistreées');
         return back();

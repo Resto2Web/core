@@ -9,7 +9,7 @@
                             <div class="card-body">
                                 <h1>{{ __('Login') }}</h1>
                                 <p class="text-muted">Connectez-vous à votre compte Resto2Web</p>
-                                    <a href="//resto2web.test/login/sso?sso=resto.test" class="btn btn-secondary">Me connecter</a>
+                                    <a href="//{{ config('resto2web.core.platform_url') }}/login/sso?sso=resto.test" class="btn btn-secondary">Me connecter</a>
                             </div>
                         </div>
                     </div>
