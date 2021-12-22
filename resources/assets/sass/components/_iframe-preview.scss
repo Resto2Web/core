@@ -1,0 +1,17 @@
+.iframe-preview {
+    height: 100%;
+    width: 100%;
+    border: none;
+    transition: all 1.2s;
+    transform: translateX(0);
+    background: white;
+}
+
+.iframe-preview-mobile {
+    width: 375px;
+}
+
+.iframe-preview-tablet {
+    width: 600px;
+}
+

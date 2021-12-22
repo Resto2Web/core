@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
 use Resto2web\Core\Auth\Controllers\ConfirmPasswordController;
 use Resto2web\Core\Auth\Controllers\ForgotPasswordController;
 use Resto2web\Core\Auth\Controllers\LoginController;
@@ -33,6 +34,6 @@ Route::middleware(['web',ProtectAgainstSpam::class])->group(function () {
     Route::get('email/verify/{id}/{hash}', [VerificationController::class, 'verify'])->name('verification.verify');
     Route::post('email/resend', [VerificationController::class, 'resend'])->name('verification.resend');
 
-    Route::get('/sso/{sso_token}', [TokenAuthController::class, 'login'])->name('loginWithToken');
+    Route::get('/sso/{token}', [TokenAuthController::class, 'loginWithToken'])->name('loginWithToken');
 
 });

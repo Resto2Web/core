@@ -1,6 +1,7 @@
 <?php
 
 
+use Illuminate\Support\Facades\Route;
 use Resto2web\Core\Common\Controllers\DisabledWebsitePageController;
 use Resto2web\Core\Website\Controllers\ContactPageController;
 use Resto2web\Core\Website\Controllers\HomePageController;

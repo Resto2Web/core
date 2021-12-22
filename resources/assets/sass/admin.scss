@@ -5,7 +5,7 @@
 //@import '~bootstrap/scss/functions';
 // 2. Vendors
 //@import "~bootstrap/scss/bootstrap";
-@import "~admin-lte/build/scss/AdminLTE";
+@import "~admin-lte/build/scss/adminlte";
 @import "~admin-lte/plugins/overlayScrollbars/css/OverlayScrollbars.css";
 @import "~select2/src/scss/core";
 @import "~datatables.net-bs4/css/dataTables.bootstrap4.min.css";
@@ -25,6 +25,7 @@
 @import "components/table";
 @import "components/dropzone";
 @import "components/avatars";
+@import "components/iframe-preview";
 
 // 6. Page-specific styles
 
