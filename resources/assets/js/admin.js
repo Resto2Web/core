@@ -4,24 +4,31 @@
  * building robust, powerful web applications using Vue and Laravel.
  */
 require('./bootstrap');
-require('admin-lte');
-require('admin-lte/plugins/overlayScrollbars/js/jquery.overlayScrollbars');
-require('admin-lte/plugins/inputmask/bindings/inputmask.binding');
-require('admin-lte/plugins/inputmask/jquery.inputmask');
+// require('./dropzone');
+import Swal from 'sweetalert2';
+import SmoothScroll from 'smooth-scroll';
+import {Datepicker} from 'vanillajs-datepicker';
+import fr from './datepicker-fr-locale';
 
-import bsCustomFileInput from 'bs-custom-file-input'
-$(document).ready(function () {
-    bsCustomFileInput.init();
-});
-import swal from 'sweetalert';
+Object.assign(Datepicker.locales, fr);
+
+
+window.Swal = Swal;
+window.Datepicker = Datepicker;
+
+window.SmoothScroll = SmoothScroll;
+
+require('./volt')
+
 require("jquery-validation/dist/jquery.validate.min");
 require("jquery-validation/dist/localization/messages_fr");
+
 
 jQuery.validator.setDefaults({
     errorElement: 'span',
     errorPlacement: function (error, element) {
         error.addClass('invalid-feedback');
-        element.closest('.form-group').append(error);
+        element.closest('.mb-3').append(error);
     },
     highlight: function (element, errorClass, validClass) {
         $(element).addClass('is-invalid');
@@ -47,7 +54,7 @@ $('.select2').select2({
     theme: 'bootstrap4'
 });
 
-require ('datatables.net');
+require('datatables.net');
 require('datatables.net-bs4');
 
 
@@ -59,7 +66,7 @@ $('.dataTable').dataTable({
 
 $('.deleteConfirm').click(function (event) {
     event.preventDefault();
-    swal({
+    Swal.fire({
         title: "Supprimer?",
         icon: "warning",
         buttons: true,
@@ -67,7 +74,7 @@ $('.deleteConfirm').click(function (event) {
     })
         .then((willDelete) => {
             if (willDelete) {
-                $('#destroy-form-'+$(this).data("id")).submit();
+                $('#destroy-form-' + $(this).data("id")).submit();
             }
         })
 
@@ -93,8 +100,8 @@ $.fn.datetimepicker.Constructor.Default = $.extend({}, $.fn.datetimepicker.Const
 
 $(document).ready(function () {
     window.livewire.on('toastr', param => {
-        toastr[param['type']](param['message'],param['title'])
+        toastr[param['type']](param['message'], param['title'])
     });
 })
 
-const Sortable = window.Sortable = require('sortablejs');
+require('trix');

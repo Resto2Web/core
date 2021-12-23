@@ -3,23 +3,22 @@
 
 namespace Resto2web\Core\Auth\Controllers;
 
-use Http;
 use Illuminate\Foundation\Auth\User;
-use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Http;
 use Resto2web\Core\Common\Controllers\Controller;
 
 class TokenAuthController extends Controller
 {
-    use AuthenticatesUsers;
-
-    public function login($token)
+    public function loginWithToken(string $ssoToken)
     {
         $secret = config('resto2web.core.secret');
-        if (is_null($secret) || $secret == '') {
+        if (strlen($secret) == 0 || $secret == '') {
             abort(500, "Secret not configured");
         }
-        $response = Http::withoutVerifying()->get(config('resto2web.core.platform_url')."/ssoCheck/".$token."/".$secret);
+        $response = Http::withoutVerifying()
+            ->acceptJson()
+            ->get(config('resto2web.core.platform_url')."/ssoCheck/".$ssoToken."/".$secret);
         if ($response->successful()) {
             $user = User::where('email',$response->object()->email)->firstOrFail();
             if ($user->type != 'admin') {
@@ -31,18 +30,18 @@ class TokenAuthController extends Controller
             $this->guard()->login($user);
             return redirect($this->redirectTo());
         }else{
-            dd($response);
+            dd($response->object());
             return ;
         }
     }
 
-    public function redirectTo()
+    public function redirectTo(): string
     {
         return route('admin.index');
     }
 
 
-    protected function guard()
+    protected function guard(): \Illuminate\Contracts\Auth\Guard|\Illuminate\Contracts\Auth\StatefulGuard
     {
         return Auth::guard(app('Resto2WebGuard'));
     }

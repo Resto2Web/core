@@ -17,7 +17,7 @@
                         <div class="d-flex align-items-center">
                             <div class="pr-3">
                                 <h5>
-                                    <i class="text-muted fa fa-sliders fa-fw"></i>
+                                    <i class="text-muted fa fa-fw fa-sliders fa-fw"></i>
                                 </h5>
                             </div>
                             <div class="">
@@ -30,7 +30,7 @@
                         <div class="d-flex align-items-center">
                             <div class="pr-3">
                                 <h5>
-                                    <i class="text-muted fa fa-sliders fa-fw"></i>
+                                    <i class="text-muted fa fa-fw fa-sliders fa-fw"></i>
                                 </h5>
                             </div>
                             <div class="">
@@ -43,7 +43,7 @@
                         <div class="d-flex align-items-center">
                             <div class="pr-3">
                                 <h5>
-                                    <i class="text-muted fa fa-qrcode fa-fw"></i>
+                                    <i class="text-muted fa fa-fw fa-qrcode fa-fw"></i>
                                 </h5>
                             </div>
                             <div class="">

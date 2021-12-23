@@ -36,7 +36,7 @@ class PublishAdminAssets extends Command
      *
      * @return int
      */
-    public function handle()
+    public function handle(): int
     {
         $this->info('Publishing the assets');
         $this->call('vendor:publish',

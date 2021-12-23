@@ -5,10 +5,16 @@ namespace Resto2web\Core;
 use Illuminate\Contracts\Http\Kernel;
 use Illuminate\Routing\Router;
 use Illuminate\Support\ServiceProvider;
+use Livewire\Livewire;
 use Resto2web\Core\Admin\Middleware\AdminMiddleware;
 use Resto2web\Core\Admin\Middleware\AdminSeoMiddleware;
-use Resto2web\Core\Console\Commands\PublishAdminAssets;
+use Resto2web\Core\Admin\Theme\Components\EditorSidebarComponent;
+use Resto2web\Core\Admin\Theme\Components\Pages\ContactPageEditorComponent;
+use Resto2web\Core\Admin\Theme\Components\Pages\HomePageEditorComponent;
+use Resto2web\Core\Admin\Theme\Components\Pages\MenuPageEditorComponent;
 use Resto2web\Core\Common\Middlewares\WebsiteActive;
+use Resto2web\Core\Console\Commands\PublishAdminAssets;
+use Resto2web\Menu\Admin\Orders\Components\EditOrderDeliveryInfosComponent;
 
 class CoreServiceProvider extends ServiceProvider
 {
@@ -47,7 +53,7 @@ class CoreServiceProvider extends ServiceProvider
 
             // Publishing assets.
             $this->publishes([
-                __DIR__.'/../resources/assets' => public_path('vendor/core'),
+                __DIR__.'/../publishable/assets' => public_path('vendor/admin'),
             ], 'assets');
 
             // Publishing the translation files.
@@ -63,6 +69,12 @@ class CoreServiceProvider extends ServiceProvider
         }
         $kernel = $this->app->make(Kernel::class);
         $kernel->pushMiddleware(WebsiteActive::class);
+
+        Livewire::component('admin.theme.editor-sidebar', EditorSidebarComponent::class);
+        Livewire::component('admin.theme.editor.pages.home', HomePageEditorComponent::class);
+        Livewire::component('admin.theme.editor.pages.menu', MenuPageEditorComponent::class);
+        Livewire::component('admin.theme.editor.pages.contact', ContactPageEditorComponent::class);
+
     }
 
     /**

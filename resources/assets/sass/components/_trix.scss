@@ -1,0 +1,44 @@
+
+.trix-toolbar .trix-button-group--file-tools {
+    display: none;
+}
+
+trix-editor {
+    background: white;
+}
+
+trix-toolbar .trix-button{
+    background: white;
+}
+
+.trix-button--icon-code {
+    display: none;
+}
+.trix-button--icon-increase {
+    display: none;
+}
+.trix-button--icon-decrease {
+    display: none;
+}
+
+.trix-button--icon-increase-nesting-level {
+    display: none;
+}
+.trix-button--icon-decrease-nesting-level {
+    display: none;
+}
+.trix-button--icon-heading-1 {
+    display: none;
+}
+
+.trix-button--icon-attach {
+    display: none;
+}
+.trix-button-group--file-tools {
+    display: none !important;
+    margin: 0 !important;
+}
+
+.trix-button--icon-quote {
+    display: none;
+}
