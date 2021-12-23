@@ -1,5 +1,7 @@
 @extends('resto2web::layout.app')
 
 @section('content')
-HomePage test
+
+    @include('resto2web.templates::template1.example1')
+
 @endsection
