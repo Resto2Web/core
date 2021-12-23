@@ -10,13 +10,13 @@
 {{--                    <li class="nav-item">--}}
 {{--                        <a class="nav-link active" data-toggle="modal" href="#toolsModal" role="tab"--}}
 {{--                           aria-selected="true">--}}
-{{--                            <i class="fa fa-cogs"></i>--}}
+{{--                            <i class="fa fa-fw fa-cogs"></i>--}}
 {{--                        </a>--}}
 {{--                    </li>--}}
 {{--                    <li class="nav-item">--}}
 {{--                        <a class="nav-link active" id="helperToggle" data-toggle="tab" href="#" role="tab"--}}
 {{--                           aria-selected="true">--}}
-{{--                            <i class="fa fa-wand-magic"></i>--}}
+{{--                            <i class="fa fa-fw fa-wand-magic"></i>--}}
 {{--                        </a>--}}
 {{--                    </li>--}}
 
@@ -25,18 +25,18 @@
 {{--                    </li>--}}
                     <li class="nav-item">
                         <a class="nav-link iframeSwitcher" id="desktopToggle" href="#" data-device="desktop">
-                            <i class="iframeSwitcherIcon iframeSwitcherIconDesktop fa fa-desktop "></i>
+                            <i class="iframeSwitcherIcon iframeSwitcherIconDesktop fa fa-fw fa-desktop "></i>
                         </a>
                     </li>
                     <li class="nav-item">
 
                         <a class="nav-link iframeSwitcher" id="tabletToggle" href="#" data-device="tablet">
-                            <i class="iframeSwitcherIcon iframeSwitcherIconTablet fa fa-tablet text-muted"></i>
+                            <i class="iframeSwitcherIcon iframeSwitcherIconTablet fa fa-fw fa-tablet text-muted"></i>
                         </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link iframeSwitcher" id="mobileToggle" href="#" data-device="mobile">
-                            <i class="iframeSwitcherIcon iframeSwitcherIconMobile fa fa-mobile text-muted"></i>
+                            <i class="iframeSwitcherIcon iframeSwitcherIconMobile fa fa-fw fa-mobile text-muted"></i>
                         </a>
                     </li>
                 </ul>

@@ -1,11 +1,298 @@
-(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["/js/admin"],{
+(self["webpackChunk"] = self["webpackChunk"] || []).push([["/js/admin"],{
+
+/***/ "./resources/assets/js/admin.js":
+/*!**************************************!*\
+  !*** ./resources/assets/js/admin.js ***!
+  \**************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! sweetalert2 */ "./node_modules/sweetalert2/dist/sweetalert2.all.js");
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(sweetalert2__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var smooth_scroll__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! smooth-scroll */ "./node_modules/smooth-scroll/dist/smooth-scroll.polyfills.min.js");
+/* harmony import */ var smooth_scroll__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(smooth_scroll__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var vanillajs_datepicker__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vanillajs-datepicker */ "./node_modules/vanillajs-datepicker/js/main.js");
+/* harmony import */ var _datepicker_fr_locale__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./datepicker-fr-locale */ "./resources/assets/js/datepicker-fr-locale.js");
+/**
+ * First we will load all of this project's JavaScript dependencies which
+ * includes Vue and other libraries. It is a great starting point when
+ * building robust, powerful web applications using Vue and Laravel.
+ */
+__webpack_require__(/*! ./bootstrap */ "./resources/assets/js/bootstrap.js"); // require('./dropzone');
+
+
+
+
+
+
+Object.assign(vanillajs_datepicker__WEBPACK_IMPORTED_MODULE_2__.Datepicker.locales, _datepicker_fr_locale__WEBPACK_IMPORTED_MODULE_3__["default"]);
+window.Swal = (sweetalert2__WEBPACK_IMPORTED_MODULE_0___default());
+window.Datepicker = vanillajs_datepicker__WEBPACK_IMPORTED_MODULE_2__.Datepicker;
+window.SmoothScroll = (smooth_scroll__WEBPACK_IMPORTED_MODULE_1___default());
+
+__webpack_require__(/*! ./volt */ "./resources/assets/js/volt.js");
+
+__webpack_require__(/*! jquery-validation/dist/jquery.validate.min */ "./node_modules/jquery-validation/dist/jquery.validate.min.js");
+
+__webpack_require__(/*! jquery-validation/dist/localization/messages_fr */ "./node_modules/jquery-validation/dist/localization/messages_fr.js");
+
+jQuery.validator.setDefaults({
+  errorElement: 'span',
+  errorPlacement: function errorPlacement(error, element) {
+    error.addClass('invalid-feedback');
+    element.closest('.mb-3').append(error);
+  },
+  highlight: function highlight(element, errorClass, validClass) {
+    $(element).addClass('is-invalid');
+  },
+  unhighlight: function unhighlight(element, errorClass, validClass) {
+    $(element).removeClass('is-invalid');
+  }
+});
+window.toastr = __webpack_require__(/*! toastr */ "./node_modules/toastr/toastr.js");
+$(".form-validate").each(function () {
+  $(this).validate({
+    submitHandler: function submitHandler(form) {
+      form.submit();
+    }
+  });
+});
+
+__webpack_require__(/*! select2 */ "./node_modules/select2/dist/js/select2.js");
+
+$('.select2').select2({
+  theme: 'bootstrap4'
+});
+
+__webpack_require__(/*! datatables.net */ "./node_modules/datatables.net/js/jquery.dataTables.js");
+
+__webpack_require__(/*! datatables.net-bs4 */ "./node_modules/datatables.net-bs4/js/dataTables.bootstrap4.js");
+
+$('.dataTable').dataTable({
+  "language": {
+    "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/French.json"
+  }
+});
+$('.deleteConfirm').click(function (event) {
+  var _this = this;
+
+  event.preventDefault();
+  sweetalert2__WEBPACK_IMPORTED_MODULE_0___default().fire({
+    title: "Supprimer?",
+    icon: "warning",
+    buttons: true,
+    dangerMode: true
+  }).then(function (willDelete) {
+    if (willDelete) {
+      $('#destroy-form-' + $(_this).data("id")).submit();
+    }
+  });
+});
+window.moment = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
+
+__webpack_require__(/*! tempusdominus-bootstrap-4 */ "./node_modules/tempusdominus-bootstrap-4/build/js/tempusdominus-bootstrap-4.js");
+
+$.fn.datetimepicker.Constructor.Default = $.extend({}, $.fn.datetimepicker.Constructor.Default, {
+  icons: {
+    time: 'far fa-clock',
+    date: 'far fa-calendar',
+    up: 'far fa-arrow-up',
+    down: 'far fa-arrow-down',
+    previous: 'far fa-chevron-left',
+    next: 'far fa-chevron-right',
+    today: 'far fa-calendar-check-o',
+    clear: 'far fa-trash',
+    close: 'far fa-times'
+  }
+});
+$(document).ready(function () {
+  window.livewire.on('toastr', function (param) {
+    toastr[param['type']](param['message'], param['title']);
+  });
+});
+
+__webpack_require__(/*! trix */ "./node_modules/trix/dist/trix.js");
+
+/***/ }),
+
+/***/ "./resources/assets/js/bootstrap.js":
+/*!******************************************!*\
+  !*** ./resources/assets/js/bootstrap.js ***!
+  \******************************************/
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+
+window._ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
+/**
+ * We'll load jQuery and the Bootstrap jQuery plugin which provides support
+ * for JavaScript based Bootstrap features such as modals and tabs. This
+ * code may be modified to fit the specific needs of your application.
+ */
+
+try {
+  window.Popper = (__webpack_require__(/*! popper.js */ "./node_modules/popper.js/dist/esm/popper.js")["default"]);
+  window.$ = window.jQuery = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
+
+  __webpack_require__(/*! bootstrap */ "./node_modules/bootstrap/dist/js/bootstrap.esm.js");
+} catch (e) {}
+/**
+ * We'll load the axios HTTP library which allows us to easily issue requests
+ * to our Laravel back-end. This library automatically handles sending the
+ * CSRF token as a header based on the value of the "XSRF" token cookie.
+ */
+
+
+window.axios = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
+/**
+ * Echo exposes an expressive API for subscribing to channels and listening
+ * for events that are broadcast by Laravel. Echo and event broadcasting
+ * allows your team to easily build robust real-time web applications.
+ */
+// import Echo from 'laravel-echo';
+// window.Pusher = require('pusher-js');
+// window.Echo = new Echo({
+//     broadcaster: 'pusher',
+//     key: process.env.MIX_PUSHER_APP_KEY,
+//     cluster: process.env.MIX_PUSHER_APP_CLUSTER,
+//     encrypted: true
+// });
+
+/***/ }),
+
+/***/ "./resources/assets/js/datepicker-fr-locale.js":
+/*!*****************************************************!*\
+  !*** ./resources/assets/js/datepicker-fr-locale.js ***!
+  \*****************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/**
+ * French translation for bootstrap-datepicker
+ * Nico Mollet <nico.mollet@gmail.com>
+ */
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  fr: {
+    days: ["dimanche", "lundi", "mardi", "mercredi", "jeudi", "vendredi", "samedi"],
+    daysShort: ["dim.", "lun.", "mar.", "mer.", "jeu.", "ven.", "sam."],
+    daysMin: ["d", "l", "ma", "me", "j", "v", "s"],
+    months: ["janvier", "février", "mars", "avril", "mai", "juin", "juillet", "août", "septembre", "octobre", "novembre", "décembre"],
+    monthsShort: ["janv.", "févr.", "mars", "avril", "mai", "juin", "juil.", "août", "sept.", "oct.", "nov.", "déc."],
+    today: "Aujourd'hui",
+    monthsTitle: "Mois",
+    clear: "Effacer",
+    weekStart: 1,
+    format: "dd/mm/yyyy"
+  }
+});
+
+/***/ }),
+
+/***/ "./resources/assets/js/volt.js":
+/*!*************************************!*\
+  !*** ./resources/assets/js/volt.js ***!
+  \*************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var smooth_scroll__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! smooth-scroll */ "./node_modules/smooth-scroll/dist/smooth-scroll.polyfills.min.js");
+/* harmony import */ var smooth_scroll__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(smooth_scroll__WEBPACK_IMPORTED_MODULE_0__);
+
+/*
+=========================================================
+* Volt Pro - Premium Bootstrap 5 Dashboard
+=========================================================
+* Product Page: https://themesberg.com/product/admin-dashboard/volt-bootstrap-5-dashboard
+* Copyright 2021 Themesberg (https://www.themesberg.com)
+* Designed and coded by https://themesberg.com
+=========================================================
+* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software. Please contact us to request a removal. Contact us if you want to remove it.
+*/
+
+"use strict";
+
+var d = document;
+d.addEventListener("DOMContentLoaded", function (event) {
+  // options
+  var breakpoints = {
+    sm: 540,
+    md: 720,
+    lg: 960,
+    xl: 1140
+  };
+  var sidebar = document.getElementById("sidebarMenu");
+
+  if (sidebar && d.body.clientWidth < breakpoints.lg) {
+    sidebar.addEventListener("shown.bs.collapse", function () {
+      document.querySelector("body").style.position = "fixed";
+    });
+    sidebar.addEventListener("hidden.bs.collapse", function () {
+      document.querySelector("body").style.position = "relative";
+    });
+  }
+
+  var iconNotifications = d.querySelector(".notification-bell");
+
+  if (iconNotifications) {
+    iconNotifications.addEventListener("shown.bs.dropdown", function () {
+      iconNotifications.classList.remove("unread");
+    });
+  }
+
+  [].slice.call(d.querySelectorAll("[data-background]")).map(function (el) {
+    el.style.background = "url(" + el.getAttribute("data-background") + ")";
+  });
+  [].slice.call(d.querySelectorAll("[data-background-lg]")).map(function (el) {
+    if (document.body.clientWidth > breakpoints.lg) {
+      el.style.background = "url(" + el.getAttribute("data-background-lg") + ")";
+    }
+  });
+  [].slice.call(d.querySelectorAll("[data-background-color]")).map(function (el) {
+    el.style.background = "url(" + el.getAttribute("data-background-color") + ")";
+  });
+  [].slice.call(d.querySelectorAll("[data-color]")).map(function (el) {
+    el.style.color = "url(" + el.getAttribute("data-color") + ")";
+  }); //Tooltips
+
+  var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+  var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+    return new bootstrap.Tooltip(tooltipTriggerEl);
+  });
+  var scroll = new (smooth_scroll__WEBPACK_IMPORTED_MODULE_0___default())('a[href*="#"]', {
+    speed: 500,
+    speedAsDuration: true
+  });
+
+  if (d.querySelector(".current-year")) {
+    d.querySelector(".current-year").textContent = new Date().getFullYear();
+  }
+});
+
+/***/ }),
+
+/***/ "./resources/assets/sass/admin.scss":
+/*!******************************************!*\
+  !*** ./resources/assets/sass/admin.scss ***!
+  \******************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
 
 /***/ "./node_modules/moment/locale sync recursive ^\\.\\/.*$":
-/*!**************************************************!*\
-  !*** ./node_modules/moment/locale sync ^\.\/.*$ ***!
-  \**************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/*!***************************************************!*\
+  !*** ./node_modules/moment/locale/ sync ^\.\/.*$ ***!
+  \***************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 var map = {
 	"./af": "./node_modules/moment/locale/af.js",
@@ -300,192 +587,12 @@ webpackContext.resolve = webpackContextResolve;
 module.exports = webpackContext;
 webpackContext.id = "./node_modules/moment/locale sync recursive ^\\.\\/.*$";
 
-/***/ }),
-
-/***/ "./resources/assets/js/admin.js":
-/*!**************************************!*\
-  !*** ./resources/assets/js/admin.js ***!
-  \**************************************/
-/*! no exports provided */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var bs_custom_file_input__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! bs-custom-file-input */ "./node_modules/bs-custom-file-input/dist/bs-custom-file-input.js");
-/* harmony import */ var bs_custom_file_input__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(bs_custom_file_input__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var sweetalert__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! sweetalert */ "./node_modules/sweetalert/dist/sweetalert.min.js");
-/* harmony import */ var sweetalert__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(sweetalert__WEBPACK_IMPORTED_MODULE_1__);
-/**
- * First we will load all of this project's JavaScript dependencies which
- * includes Vue and other libraries. It is a great starting point when
- * building robust, powerful web applications using Vue and Laravel.
- */
-__webpack_require__(/*! ./bootstrap */ "./resources/assets/js/bootstrap.js");
-
-__webpack_require__(/*! admin-lte */ "./node_modules/admin-lte/dist/js/adminlte.min.js");
-
-__webpack_require__(/*! admin-lte/plugins/overlayScrollbars/js/jquery.overlayScrollbars */ "./node_modules/admin-lte/plugins/overlayScrollbars/js/jquery.overlayScrollbars.js");
-
-__webpack_require__(/*! admin-lte/plugins/inputmask/bindings/inputmask.binding */ "./node_modules/admin-lte/plugins/inputmask/bindings/inputmask.binding.js");
-
-__webpack_require__(/*! admin-lte/plugins/inputmask/jquery.inputmask */ "./node_modules/admin-lte/plugins/inputmask/jquery.inputmask.js");
-
-
-$(document).ready(function () {
-  bs_custom_file_input__WEBPACK_IMPORTED_MODULE_0___default.a.init();
-});
-
-
-__webpack_require__(/*! jquery-validation/dist/jquery.validate.min */ "./node_modules/jquery-validation/dist/jquery.validate.min.js");
-
-__webpack_require__(/*! jquery-validation/dist/localization/messages_fr */ "./node_modules/jquery-validation/dist/localization/messages_fr.js");
-
-jQuery.validator.setDefaults({
-  errorElement: 'span',
-  errorPlacement: function errorPlacement(error, element) {
-    error.addClass('invalid-feedback');
-    element.closest('.form-group').append(error);
-  },
-  highlight: function highlight(element, errorClass, validClass) {
-    $(element).addClass('is-invalid');
-  },
-  unhighlight: function unhighlight(element, errorClass, validClass) {
-    $(element).removeClass('is-invalid');
-  }
-});
-window.toastr = __webpack_require__(/*! toastr */ "./node_modules/toastr/toastr.js");
-$(".form-validate").each(function () {
-  $(this).validate({
-    submitHandler: function submitHandler(form) {
-      form.submit();
-    }
-  });
-});
-
-__webpack_require__(/*! select2 */ "./node_modules/select2/dist/js/select2.js");
-
-$('.select2').select2({
-  theme: 'bootstrap4'
-});
-
-__webpack_require__(/*! datatables.net */ "./node_modules/datatables.net/js/jquery.dataTables.js");
-
-__webpack_require__(/*! datatables.net-bs4 */ "./node_modules/datatables.net-bs4/js/dataTables.bootstrap4.js");
-
-$('.dataTable').dataTable({
-  "language": {
-    "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/French.json"
-  }
-});
-$('.deleteConfirm').click(function (event) {
-  var _this = this;
-
-  event.preventDefault();
-  sweetalert__WEBPACK_IMPORTED_MODULE_1___default()({
-    title: "Supprimer?",
-    icon: "warning",
-    buttons: true,
-    dangerMode: true
-  }).then(function (willDelete) {
-    if (willDelete) {
-      $('#destroy-form-' + $(_this).data("id")).submit();
-    }
-  });
-});
-window.moment = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
-
-__webpack_require__(/*! tempusdominus-bootstrap-4 */ "./node_modules/tempusdominus-bootstrap-4/build/js/tempusdominus-bootstrap-4.js");
-
-$.fn.datetimepicker.Constructor.Default = $.extend({}, $.fn.datetimepicker.Constructor.Default, {
-  icons: {
-    time: 'far fa-clock',
-    date: 'far fa-calendar',
-    up: 'far fa-arrow-up',
-    down: 'far fa-arrow-down',
-    previous: 'far fa-chevron-left',
-    next: 'far fa-chevron-right',
-    today: 'far fa-calendar-check-o',
-    clear: 'far fa-trash',
-    close: 'far fa-times'
-  }
-});
-$(document).ready(function () {
-  window.livewire.on('toastr', function (param) {
-    toastr[param['type']](param['message'], param['title']);
-  });
-});
-
-var Sortable = window.Sortable = __webpack_require__(/*! sortablejs */ "./node_modules/sortablejs/modular/sortable.esm.js");
-
-/***/ }),
-
-/***/ "./resources/assets/js/bootstrap.js":
-/*!******************************************!*\
-  !*** ./resources/assets/js/bootstrap.js ***!
-  \******************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-window._ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
-/**
- * We'll load jQuery and the Bootstrap jQuery plugin which provides support
- * for JavaScript based Bootstrap features such as modals and tabs. This
- * code may be modified to fit the specific needs of your application.
- */
-
-try {
-  window.Popper = __webpack_require__(/*! popper.js */ "./node_modules/popper.js/dist/esm/popper.js")["default"];
-  window.$ = window.jQuery = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
-
-  __webpack_require__(/*! bootstrap */ "./node_modules/bootstrap/dist/js/bootstrap.js");
-} catch (e) {}
-/**
- * We'll load the axios HTTP library which allows us to easily issue requests
- * to our Laravel back-end. This library automatically handles sending the
- * CSRF token as a header based on the value of the "XSRF" token cookie.
- */
-
-
-window.axios = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
-window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
-/**
- * Echo exposes an expressive API for subscribing to channels and listening
- * for events that are broadcast by Laravel. Echo and event broadcasting
- * allows your team to easily build robust real-time web applications.
- */
-// import Echo from 'laravel-echo';
-// window.Pusher = require('pusher-js');
-// window.Echo = new Echo({
-//     broadcaster: 'pusher',
-//     key: process.env.MIX_PUSHER_APP_KEY,
-//     cluster: process.env.MIX_PUSHER_APP_CLUSTER,
-//     encrypted: true
-// });
-
-/***/ }),
-
-/***/ "./resources/assets/sass/admin.scss":
-/*!******************************************!*\
-  !*** ./resources/assets/sass/admin.scss ***!
-  \******************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-
-/***/ 0:
-/*!*******************************************************************************!*\
-  !*** multi ./resources/assets/js/admin.js ./resources/assets/sass/admin.scss ***!
-  \*******************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-__webpack_require__(/*! /home/lucas/Resto2Web/core/resources/assets/js/admin.js */"./resources/assets/js/admin.js");
-module.exports = __webpack_require__(/*! /home/lucas/Resto2Web/core/resources/assets/sass/admin.scss */"./resources/assets/sass/admin.scss");
-
-
 /***/ })
 
-},[[0,"/js/manifest","/js/vendor"]]]);
+},
+/******/ __webpack_require__ => { // webpackRuntimeModules
+/******/ var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
+/******/ __webpack_require__.O(0, ["css/admin","/js/vendor"], () => (__webpack_exec__("./resources/assets/js/admin.js"), __webpack_exec__("./resources/assets/sass/admin.scss")));
+/******/ var __webpack_exports__ = __webpack_require__.O();
+/******/ }
+]);

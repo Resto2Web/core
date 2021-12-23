@@ -1,19 +1,16 @@
 <?php
 
-
 namespace Resto2web\Core\Website\Controllers;
-
 
 use Artesaos\SEOTools\Traits\SEOTools;
 use Illuminate\Contracts\View\View;
-use Resto2web\Core\Common\Controllers\Controller;
 
-class ContactPageController extends Controller
+class AboutUsPageController
 {
     use SEOTools;
     public function __invoke(): View
     {
-        $this->seo()->setTitle('Contact');
-        return view('resto2web::pages.contact');
+        $this->seo()->setTitle('A propos de nous');
+        return view('resto2web::pages.about-us');
     }
 }

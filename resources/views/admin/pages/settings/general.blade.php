@@ -53,7 +53,7 @@
                 <div class="card">
                     <div class="card-body">
                         <div class="text-right">
-                            <button type="submit" class="btn btn-primary"><i class="fa fa-save"></i> Enregister les
+                            <button type="submit" class="btn btn-primary"><i class="fa fa-fw fa-save"></i> Enregister les
                                 modifications
                             </button>
                         </div>

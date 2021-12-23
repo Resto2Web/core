@@ -1,17 +1,15 @@
-<li class="nav-item">
+<li class="nav-item {{ request()->routeIs('admin.settings.index') ? 'active' : '' }}">
     <a href="{{ route('admin.settings.index') }}" class="nav-link">
-        <i class="nav-icon fas fa-cogs"></i>
-        <p>
-            Paramètres
-        </p>
+            <span class="sidebar-icon fa-fw fa fa-cogs">
+            </span>
+        <span class="sidebar-text">Paramètres</span>
     </a>
 </li>
-<li class="nav-item">
+<li class="nav-item {{ request()->routeIs('admin.theme.index') ? 'active' : '' }}">
     <a href="{{ route('admin.theme.index') }}" class="nav-link">
-        <i class="nav-icon fas fa-paint-brush"></i>
-        <p>
-            Thème
-        </p>
+            <span class="sidebar-icon fa-fw fa fa-paint-brush">
+            </span>
+        <span class="sidebar-text">Thème</span>
     </a>
 </li>
 

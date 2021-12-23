@@ -2,14 +2,77 @@
 @import 'abstracts/variables';
 @import 'abstracts/functions';
 @import 'abstracts/mixins';
-//@import '~bootstrap/scss/functions';
+
 // 2. Vendors
-//@import "~bootstrap/scss/bootstrap";
-@import "~admin-lte/build/scss/adminlte";
-@import "~admin-lte/plugins/overlayScrollbars/css/OverlayScrollbars.css";
+
+@import "~bootstrap/scss/functions";
+@import "~@themesberg/volt-bootstrap-5-dashboard/src/scss/volt/variables";
+
+// Third party
+//@import '~vanillajs-datepicker/sass/datepicker-bs4';
+//@import "~chartist/dist/scss/chartist.scss";
+
+// Bootstrap
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/mixins";
+@import "~bootstrap/scss/utilities";
+
+// Modify utilities here
+@import "~@themesberg/volt-bootstrap-5-dashboard/src/scss/volt/utilities";
+
+// Bootstrap Layout & components
+@import "~bootstrap/scss/root";
+@import "~bootstrap/scss/reboot";
+@import "~bootstrap/scss/type";
+@import "~bootstrap/scss/images";
+@import "~bootstrap/scss/containers";
+@import "~bootstrap/scss/grid";
+@import "~bootstrap/scss/tables";
+@import "~bootstrap/scss/forms";
+@import "~bootstrap/scss/buttons";
+@import "~bootstrap/scss/transitions";
+@import "~bootstrap/scss/dropdown";
+@import "~bootstrap/scss/button-group";
+@import "~bootstrap/scss/nav";
+@import "~bootstrap/scss/navbar";
+@import "~bootstrap/scss/card";
+@import "~bootstrap/scss/accordion";
+@import "~bootstrap/scss/breadcrumb";
+@import "~bootstrap/scss/pagination";
+@import "~bootstrap/scss/badge";
+@import "~bootstrap/scss/alert";
+@import "~bootstrap/scss/progress";
+@import "~bootstrap/scss/list-group";
+@import "~bootstrap/scss/close";
+@import "~bootstrap/scss/toasts";
+@import "~bootstrap/scss/modal";
+@import "~bootstrap/scss/tooltip";
+@import "~bootstrap/scss/popover";
+@import "~bootstrap/scss/carousel";
+@import "~bootstrap/scss/spinners";
+
+// Helpers
+@import "~bootstrap/scss/helpers";
+
+// Utilities
+@import "~bootstrap/scss/utilities/api";
+
+@import "~@themesberg/volt-bootstrap-5-dashboard/src/scss/volt/mixins";
+@import "~@themesberg/volt-bootstrap-5-dashboard/src/scss/volt/functions";
+@import "~@themesberg/volt-bootstrap-5-dashboard/src/scss/volt/layout";
+@import "~@themesberg/volt-bootstrap-5-dashboard/src/scss/volt/components";
+@import "~@themesberg/volt-bootstrap-5-dashboard/src/scss/volt/forms";
+
+
 @import "~select2/src/scss/core";
 @import "~datatables.net-bs4/css/dataTables.bootstrap4.min.css";
 @import "~@ttskch/select2-bootstrap4-theme/src/layout";
+@import "~trix/dist/trix.css";
+
+
+
+// write your custom styles here!
+
 
 // 3. Base stuff
 @import 'base/base';
@@ -20,11 +83,15 @@
 @import 'layout/header';
 
 // 5. Components
-@import "components/cookie-consent";
+//@import "components/cookie-consent";
 @import "components/toaster";
 @import "components/table";
+@import "components/cards";
 @import "components/dropzone";
 @import "components/avatars";
+@import 'components/trix';
+@import "components/datepicker-bs4";
+@import "components/media-library-pro-bs5";
 @import "components/iframe-preview";
 
 // 6. Page-specific styles
