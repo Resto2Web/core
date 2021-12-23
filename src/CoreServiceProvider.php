@@ -10,6 +10,7 @@ use Resto2web\Core\Admin\Middleware\AdminMiddleware;
 use Resto2web\Core\Admin\Middleware\AdminSeoMiddleware;
 use Resto2web\Core\Admin\Theme\Components\EditorSidebarComponent;
 use Resto2web\Core\Admin\Theme\Components\Pages\ContactPageEditorComponent;
+use Resto2web\Core\Admin\Theme\Components\Pages\Home\HomeSliderEditorComponent;
 use Resto2web\Core\Admin\Theme\Components\Pages\HomePageEditorComponent;
 use Resto2web\Core\Admin\Theme\Components\Pages\MenuPageEditorComponent;
 use Resto2web\Core\Common\Middlewares\WebsiteActive;
@@ -72,6 +73,7 @@ class CoreServiceProvider extends ServiceProvider
 
         Livewire::component('admin.theme.editor-sidebar', EditorSidebarComponent::class);
         Livewire::component('admin.theme.editor.pages.home', HomePageEditorComponent::class);
+        Livewire::component('admin.theme.editor.pages.home-slider', HomeSliderEditorComponent::class);
         Livewire::component('admin.theme.editor.pages.menu', MenuPageEditorComponent::class);
         Livewire::component('admin.theme.editor.pages.contact', ContactPageEditorComponent::class);
 

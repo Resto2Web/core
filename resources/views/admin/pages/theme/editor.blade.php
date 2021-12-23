@@ -7,8 +7,9 @@
             <livewire:admin.theme.editor-sidebar/>
         </div>
         <div class="col-md-9 bg-light h-100" style="min-height: 100vh">
-            <div class="m-4 d-flex justify-content-center h-100" >
-                <iframe src="https://resto.test" id="iframe-preview" style="min-height: 80vh" class="iframe-preview shadow h-100"></iframe>
+            <div class="m-4 d-flex justify-content-center h-100">
+                <iframe src="https://resto.test" id="iframe-preview" style="min-height: 80vh"
+                        class="iframe-preview shadow h-100"></iframe>
             </div>
         </div>
     </div>
@@ -22,12 +23,27 @@
             $(".iframe-preview").removeClass("iframe-preview-mobile");
             $(".iframe-preview").removeClass("iframe-preview-desktop");
             $(".iframe-preview").removeClass("iframe-preview-tablet");
-            $(".iframe-preview").addClass("iframe-preview-"+$(this).data('device'));
+            $(".iframe-preview").addClass("iframe-preview-" + $(this).data('device'));
             $(this).find('.iframeSwitcherIcon').removeClass('text-muted')
         });
 
-        Livewire.on('redirectPreviewTo',url => {
+        Livewire.on('redirectPreviewTo', url => {
             document.getElementById('iframe-preview').src = url;
         })
+
+        Livewire.on('refreshPreview', () => {
+            document.getElementById('iframe-preview').src = document.getElementById('iframe-preview').src
+        })
+        // document.addEventListener('livewire:load', function () {
+        //
+        //     let slideModal = document.getElementById('slideModal');
+        //     Livewire.on('slideModalDisplay', (show) => {
+        //         if (show) {
+        //             slideModal.show()
+        //         } else {
+        //             slideModal.hide()
+        //         }
+        //     })
+        // });
     </script>
 @endpush
