@@ -2,10 +2,10 @@
     <div class="card-header">
         <div class="row">
             <div class="col-6">
-                <button class="btn btn-{{ $mode == 'general' ? '' : 'outline-' }}primary btn-block" wire:click.prevent="setMode('general')">Général</button>
+                <button class="btn btn-{{ $mode == 'general' ? '' : 'outline-' }}primary w-100" wire:click.prevent="setMode('general')">Général</button>
             </div>
             <div class="col-6">
-                <button class="btn btn-{{ $mode == 'pages' ? '' : 'outline-' }}primary btn-block" wire:click.prevent="setMode('pages')">Pages</button>
+                <button class="btn btn-{{ $mode == 'pages' ? '' : 'outline-' }}primary w-100" wire:click.prevent="setMode('pages')">Pages</button>
             </div>
         </div>
     </div>
@@ -17,7 +17,7 @@
             @break
 
             @case('pages')
-            <select name="page" id="page" class="form-control" wire:model="page">
+            <select name="page" id="page" class="form-select" wire:model="page">
                 <option value="home">Page d'accueil</option>
                 <option value="menu">Menu</option>
                 <option value="contact">Contact</option>
