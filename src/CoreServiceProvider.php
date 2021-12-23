@@ -4,6 +4,7 @@ namespace Resto2web\Core;
 
 use Illuminate\Contracts\Http\Kernel;
 use Illuminate\Routing\Router;
+use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 use Livewire\Livewire;
 use Resto2web\Core\Admin\Middleware\AdminMiddleware;
@@ -76,6 +77,11 @@ class CoreServiceProvider extends ServiceProvider
         Livewire::component('admin.theme.editor.pages.home-slider', HomeSliderEditorComponent::class);
         Livewire::component('admin.theme.editor.pages.menu', MenuPageEditorComponent::class);
         Livewire::component('admin.theme.editor.pages.contact', ContactPageEditorComponent::class);
+
+        View::composer(
+            'resto2web::layout.app', function ($view){
+                $view->with('theme',config('resto2web.core.theme'));
+        });
 
     }
 
