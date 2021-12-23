@@ -14,9 +14,10 @@ class HomePageController extends Controller
     use SEOTools;
     public function __invoke(): View
     {
+        $theme = 'italian-romantic';
         $homeSlides = HomeSlide::all();
         $this->seo()->setTitle('Accueil');
-        return view('resto2web::pages.home')
+        return view('resto2web.templates::themes.'.$theme.".home")
             ->with(compact('homeSlides'));
     }
 }
