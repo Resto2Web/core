@@ -10,7 +10,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <link rel="icon" href="/images/logos/favicon.png">
-    <link rel="stylesheet" href="{{ mix('/app/css/app.css') }}">
+    <link rel="stylesheet" href="{{ mix('/css/theme1.css',"/vendor/theme1") }}">
     @livewireStyles
 
 </head>
@@ -22,9 +22,9 @@
 @include('resto2web::layout.footer')
 @livewireScripts
 
-<script src="{{mix('/app/js/manifest.js')}}"></script>
-<script src="{{mix('/app/js/vendor.js')}}"></script>
-<script src="{{mix('/app/js/app.js')}}"></script>
+<script src="{{mix('/js/manifest.js',"/vendor/theme1")}}"></script>
+<script src="{{mix('/js/vendor.js',"/vendor/theme1")}}"></script>
+<script src="{{mix('/js/theme1.js',"/vendor/theme1")}}"></script>
 <script src="https://kit.fontawesome.com/01333c9585.js" crossorigin="anonymous"></script>
 @stack('scripts')
 </body>
