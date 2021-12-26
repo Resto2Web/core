@@ -17,7 +17,7 @@
                             @csrf
                             @honeypot
 
-                            <div class="form-group">
+                            <div class="mb-3">
                                 <label for="email" class="">{{ __('E-Mail Address') }}</label>
 
                                 <div class="">
@@ -33,7 +33,7 @@
                                     @enderror
                                 </div>
                             </div>
-                            <div class="form-group mb-0">
+                            <div class="mb-3 mb-0">
                                 <div class="text-right">
                                     <button type="submit" class="btn btn-primary">
                                         {{ __('Send Password Reset Link') }}

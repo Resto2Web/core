@@ -23,11 +23,11 @@
                         <h4>Paramètres généraux</h4>
                     </div>
                     <div class="card-body">
-                        <div class="form-group">
+                        <div class="mb-3">
                             {!! Form::label('email','Email du restaurant') !!}
                             {!! Form::email('email',$settings->email, ['class'=> 'form-control','required']) !!}
                         </div>
-                        <div class="form-group">
+                        <div class="mb-3">
                             {!! Form::label('phoneNumber','Numéro de téléphone du restaurant') !!}
                             {!! Form::text('phoneNumber',$settings->phoneNumber, ['class'=> 'form-control']) !!}
                         </div>
@@ -40,7 +40,7 @@
                         <h4>Liens sociaux</h4>
                     </div>
                     <div class="card-body">
-                        <div class="form-group">
+                        <div class="mb-3">
                             {!! Form::label('facebook_url','Page facebook du restaurant') !!}
                             {!! Form::text('facebook_url',$settings->facebook_url, ['class'=> 'form-control']) !!}
                         </div>

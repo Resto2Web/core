@@ -3,8 +3,10 @@
 namespace Resto2web\Core\Admin\Theme\Components\Pages\Home;
 
 use Illuminate\Contracts\View\View;
+use Illuminate\Support\Collection;
 use Livewire\Component;
 use Livewire\WithFileUploads;
+use MarkSitko\LaravelUnsplash\UnsplashFacade as Unsplash;
 use Resto2web\Core\Domain\Theme\HomeSlides\Models\HomeSlide;
 
 class HomeSliderEditorComponent extends Component
@@ -12,9 +14,15 @@ class HomeSliderEditorComponent extends Component
 
     use WithFileUploads;
     public bool $showSlideModal = false;
+    public bool $showImageForm = true;
     public ?int $homeSlideId = null;
+    public ?string $unsplashId = null;
     public HomeSlide $homeSlide;
     public $image;
+
+    protected $listeners = [
+        'selectedUnsplashImage'
+    ];
 
     protected $rules = [
         'homeSlide.title' => 'required',
@@ -42,9 +50,9 @@ class HomeSliderEditorComponent extends Component
     public function edit($id)
     {
         $this->homeSlideId = $id;
+        $this->showImageForm = false;
         $this->homeSlide = HomeSlide::findOrFail($this->homeSlideId);
         $this->showModal();
-        $this->emit('refreshPreview');
     }
 
     public function close()
@@ -72,6 +80,13 @@ class HomeSliderEditorComponent extends Component
                 ->addMedia($this->image)
                 ->toMediaCollection('image');
         }
+        if ($this->unsplashId) {
+            $photo = Unsplash::photo($this->unsplashId)->toJson();
+            $this->homeSlide->clearMediaCollection('image');
+            $this->homeSlide
+                ->addMediaFromUrl($photo->urls->regular)
+                ->toMediaCollection('image');
+        }
         $this->image = null;
         $this->hideModal();
         $this->emit('refreshPreview');
@@ -87,6 +102,11 @@ class HomeSliderEditorComponent extends Component
     {
         $this->showSlideModal = false;
         $this->emit('slideModalDisplay',false);
+    }
+
+    public function selectedUnsplashImage($id)
+    {
+        $this->unsplashId = $id;
     }
 
 }

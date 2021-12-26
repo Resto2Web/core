@@ -15,7 +15,7 @@
                                 @honeypot
                                 <div class="row">
                                     <div class="col-md-12">
-                                        <div class="form-group">
+                                        <div class="mb-3">
                                             <label for="name" class="sr-only col-form-label text-md-right">{{ __('Name') }}</label>
                                             <div class="">
                                                 <div class="input-group">
@@ -28,7 +28,7 @@
                                         </div>
                                     </div>
                                     <div class="col-md-12">
-                                        <div class="form-group">
+                                        <div class="mb-3">
                                             <label for="email" class="col-md-4 col-form-label sr-only text-md-right">{{ __('E-Mail Address') }}</label>
 
                                             <div class="">
@@ -44,7 +44,7 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-md-12">
-                                        <div class="form-group">
+                                        <div class="mb-3">
                                             <label for="password" class="sr-only col-form-label text-md-right">{{ __('Password') }}</label>
                                             <div class="">
                                                 <div class="input-group">
@@ -58,7 +58,7 @@
                                         </div>
                                     </div>
                                     <div class="col-md-12">
-                                        <div class="form-group">
+                                        <div class="mb-3">
                                             <label for="password-confirm" class="sr-only col-form-label text-md-right">{{ __('Confirm Password') }}</label>
                                             <div class="input-group">
                                                 <div class="input-group-prepend"><span class="input-group-text">
@@ -70,7 +70,7 @@
                                     </div>
                                 </div>
 
-                                <div class="form-group mb-0">
+                                <div class="mb-3 mb-0">
                                     <button type="submit" class="btn btn-primary btn-block">
                                         {{ __('Register') }}
                                     </button>

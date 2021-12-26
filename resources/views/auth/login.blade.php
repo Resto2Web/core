@@ -14,7 +14,7 @@
                                         <form method="POST" action="{{ route('login') }}" class="form-validate">
                                             @csrf
                                             @honeypot
-                                            <div class="form-group">
+                                            <div class="mb-3">
                                                 <div class="input-group">
                                                     <label for="email" class="sr-only">{{__('Email')}}</label>
                                                     <div class="input-group-prepend"><span class="input-group-text">
@@ -23,7 +23,7 @@
                                                     <input class="form-control" id="email" type="email" name="email" required placeholder="{{__('Email')}}">
                                                 </div>
                                             </div>
-                                            <div class="form-group">
+                                            <div class="mb-3">
 
                                                 <div class="input-group ">
                                                     <label for="password" class="sr-only">{{__('Password')}}</label>

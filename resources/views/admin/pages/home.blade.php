@@ -1,4 +1,4 @@
-@extends('resto2web-admin::.layout.layout')
+@extends('resto2web-admin::layout.layout')
 
 @section('content')
 Home

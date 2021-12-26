@@ -34,16 +34,20 @@
         Livewire.on('refreshPreview', () => {
             document.getElementById('iframe-preview').src = document.getElementById('iframe-preview').src
         })
-        // document.addEventListener('livewire:load', function () {
-        //
-        //     let slideModal = document.getElementById('slideModal');
-        //     Livewire.on('slideModalDisplay', (show) => {
-        //         if (show) {
-        //             slideModal.show()
-        //         } else {
-        //             slideModal.hide()
-        //         }
-        //     })
-        // });
+        document.addEventListener('livewire:load', function () {
+            Livewire.on('slideModalDisplay', (show) => {
+                if (show) {
+                    $('body').addClass('modal-open')
+                    $('<div class="modal-backdrop fade show"></div>').appendTo(document.body);
+                    $('.modal-backdrop').on('click', () => {
+                        $(".modal-backdrop").remove();
+                        $('body').removeClass('modal-open')
+                    });
+                }else{
+                    $(".modal-backdrop").remove();
+                    $('body').removeClass('modal-open')
+                }
+            })
+        });
     </script>
 @endpush

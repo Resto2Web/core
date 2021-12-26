@@ -7,16 +7,28 @@ use Illuminate\Routing\Router;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 use Livewire\Livewire;
+use Resto2web\Core\Admin\Components\UnsplashImagePreview;
+use Resto2web\Core\Admin\Components\UnsplashImageSearch;
 use Resto2web\Core\Admin\Middleware\AdminMiddleware;
 use Resto2web\Core\Admin\Middleware\AdminSeoMiddleware;
 use Resto2web\Core\Admin\Theme\Components\EditorSidebarComponent;
 use Resto2web\Core\Admin\Theme\Components\Pages\ContactPageEditorComponent;
+use Resto2web\Core\Admin\Theme\Components\Pages\Home\HomePageEditorComponent;
 use Resto2web\Core\Admin\Theme\Components\Pages\Home\HomeSliderEditorComponent;
-use Resto2web\Core\Admin\Theme\Components\Pages\HomePageEditorComponent;
 use Resto2web\Core\Admin\Theme\Components\Pages\MenuPageEditorComponent;
 use Resto2web\Core\Common\Middlewares\WebsiteActive;
 use Resto2web\Core\Console\Commands\PublishAdminAssets;
-use Resto2web\Menu\Admin\Orders\Components\EditOrderDeliveryInfosComponent;
+use Resto2web\Core\Admin\Meals\Components\MealOptionsComponent;
+use Resto2web\Core\Admin\Orders\Components\CreateOrderMenuMealItemComponent;
+use Resto2web\Core\Admin\Orders\Components\CreateOrderSidebarComponent;
+use Resto2web\Core\Admin\Orders\Components\EditOrderCustomerInfosComponent;
+use Resto2web\Core\Admin\Orders\Components\EditOrderDeliveryInfosComponent;
+use Resto2web\Core\Admin\Orders\Components\OrderStatusChangerComponent;
+use Resto2web\Core\Website\Components\Cart\CartMealItemComponent;
+use Resto2web\Core\Website\Components\CartSidebarComponent;
+use Resto2web\Core\Website\Components\Checkout\CheckoutComponent;
+use Resto2web\Core\Website\Components\Menu\MenuMealItemComponent;
+use Resto2web\Core\Website\Components\Menu\MenuMealOptionsModal;
 
 class CoreServiceProvider extends ServiceProvider
 {
@@ -63,7 +75,6 @@ class CoreServiceProvider extends ServiceProvider
                 __DIR__.'/../resources/lang' => resource_path('lang/vendor/core'),
             ], 'lang');*/
 
-            // Registering package commands.
             $this->commands([
                 PublishAdminAssets::class
             ]);
@@ -73,10 +84,25 @@ class CoreServiceProvider extends ServiceProvider
         $kernel->pushMiddleware(WebsiteActive::class);
 
         Livewire::component('admin.theme.editor-sidebar', EditorSidebarComponent::class);
+        Livewire::component('admin.unsplash-image-search', UnsplashImageSearch::class);
+        Livewire::component('admin.unsplash-image-preview', UnsplashImagePreview::class);
         Livewire::component('admin.theme.editor.pages.home', HomePageEditorComponent::class);
         Livewire::component('admin.theme.editor.pages.home-slider', HomeSliderEditorComponent::class);
         Livewire::component('admin.theme.editor.pages.menu', MenuPageEditorComponent::class);
         Livewire::component('admin.theme.editor.pages.contact', ContactPageEditorComponent::class);
+
+        Livewire::component('website.components.cart-sidebar', CartSidebarComponent::class);
+        Livewire::component('website.components.cart.meal-item', CartMealItemComponent::class);
+        Livewire::component('website.components.menu.meal-item', MenuMealItemComponent::class);
+        Livewire::component('website.components.menu.meal-options-modal', MenuMealOptionsModal::class);
+        Livewire::component('website.components.checkout', CheckoutComponent::class);
+
+        Livewire::component('admin.meals.components.meal-options', MealOptionsComponent::class);
+        Livewire::component('admin.orders.components.order-status-changer', OrderStatusChangerComponent::class);
+        Livewire::component('admin.orders.components.create-order-sidebar', CreateOrderSidebarComponent::class);
+        Livewire::component('admin.orders.components.create-order-menu-meal-item', CreateOrderMenuMealItemComponent::class);
+        Livewire::component('admin.orders.components.edit-order-customer-info', EditOrderCustomerInfosComponent::class);
+        Livewire::component('admin.orders.components.edit-order-delivery-info', EditOrderDeliveryInfosComponent::class);
 
         View::composer(
             'resto2web::layout.app', function ($view){

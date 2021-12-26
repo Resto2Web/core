@@ -1,9 +1,10 @@
 <?php
 
-namespace Resto2web\Core\Admin\Theme\Components\Pages;
+namespace Resto2web\Core\Admin\Theme\Components\Pages\Home;
 
 use Illuminate\Contracts\View\View;
 use Livewire\Component;
+use function view;
 
 class HomePageEditorComponent extends Component
 {
