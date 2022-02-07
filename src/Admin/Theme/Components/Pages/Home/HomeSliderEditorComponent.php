@@ -81,11 +81,8 @@ class HomeSliderEditorComponent extends Component
                 ->toMediaCollection('image');
         }
         if ($this->unsplashId) {
-            $photo = Unsplash::photo($this->unsplashId)->toJson();
-            $this->homeSlide->clearMediaCollection('image');
-            $this->homeSlide
-                ->addMediaFromUrl($photo->urls->regular)
-                ->toMediaCollection('image');
+            $this->homeSlide->clearUnsplashMedia();
+            $this->homeSlide->addMediaFromUnsplashId($this->unsplashId);
         }
         $this->image = null;
         $this->hideModal();

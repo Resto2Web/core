@@ -12,6 +12,7 @@ use Resto2web\Core\Admin\Components\UnsplashImageSearch;
 use Resto2web\Core\Admin\Middleware\AdminMiddleware;
 use Resto2web\Core\Admin\Middleware\AdminSeoMiddleware;
 use Resto2web\Core\Admin\Theme\Components\EditorSidebarComponent;
+use Resto2web\Core\Admin\Theme\Components\GeneralEditorComponent;
 use Resto2web\Core\Admin\Theme\Components\Pages\ContactPageEditorComponent;
 use Resto2web\Core\Admin\Theme\Components\Pages\Home\HomePageEditorComponent;
 use Resto2web\Core\Admin\Theme\Components\Pages\Home\HomeSliderEditorComponent;
@@ -86,6 +87,7 @@ class CoreServiceProvider extends ServiceProvider
         Livewire::component('admin.theme.editor-sidebar', EditorSidebarComponent::class);
         Livewire::component('admin.unsplash-image-search', UnsplashImageSearch::class);
         Livewire::component('admin.unsplash-image-preview', UnsplashImagePreview::class);
+        Livewire::component('admin.theme.editor.general', GeneralEditorComponent::class);
         Livewire::component('admin.theme.editor.pages.home', HomePageEditorComponent::class);
         Livewire::component('admin.theme.editor.pages.home-slider', HomeSliderEditorComponent::class);
         Livewire::component('admin.theme.editor.pages.menu', MenuPageEditorComponent::class);
@@ -128,6 +130,8 @@ class CoreServiceProvider extends ServiceProvider
         $this->app->singleton('Resto2WebGuard', function () {
             return config('auth.defaults.guard', 'web');
         });
+
+        require_once ('helpers.php');
     }
 
 }

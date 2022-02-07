@@ -23,13 +23,13 @@
                             @endif
                         @endforeach
                     </div>
-                    <div class="align-self-center"><strong>{{ formatPrice($cartItem->price * $cartItem->qty) }}</strong></div>
+                    <div class="align-self-center"><strong>{{ money($cartItem->price * $cartItem->qty) }}</strong></div>
 
                 @else
                     <div class="align-self-center">
                         {{ $cartItem->qty }} x {{ $cartItem->model->name }}
                     </div>
-                    <div class="align-self-center"><strong>{{ formatPrice($cartItem->price * $cartItem->qty) }}</strong></div>
+                    <div class="align-self-center"><strong>{{ money($cartItem->price * $cartItem->qty) }}</strong></div>
                 @endif
             </div>
         </div>
@@ -41,7 +41,7 @@
 
 <div class="mb-2">
     @if (\Resto2web\Core\Domain\Utility\Helpers\CartOrderHelper::isDelivery())
-        Livraison - {{ formatPrice(\Resto2web\Core\Domain\Utility\Helpers\CartOrderHelper::getDeliveryPrice()) }}
+        Livraison - {{ money(\Resto2web\Core\Domain\Utility\Helpers\CartOrderHelper::getDeliveryPrice()) }}
     @endif
     @if (\Resto2web\Core\Domain\Utility\Helpers\CartOrderHelper::isTakeaway())
         A emporter
@@ -49,6 +49,6 @@
 </div>
 <div class="d-flex justify-content-between mt-2">
     <div>
-        TOTAL - {{ formatPrice(\Resto2web\Core\Domain\Utility\Helpers\CartOrderHelper::getTotal()) }}
+        TOTAL - {{ money(\Resto2web\Core\Domain\Utility\Helpers\CartOrderHelper::getTotal()) }}
     </div>
 </div>

@@ -4,7 +4,6 @@
 namespace Resto2web\Core\Admin\Settings\Controllers;
 
 use Artesaos\SEOTools\Traits\SEOTools;
-use Illuminate\Http\Request;
 use Resto2web\Core\Admin\Settings\Requests\GeneralSettingsRequest;
 use Resto2web\Core\Common\Controllers\Controller;
 use Resto2web\Core\Settings\GeneralSettings;
@@ -13,6 +12,7 @@ use Resto2web\Core\Settings\GeneralSettings;
 class GeneralSettingsPageController extends Controller
 {
     use SEOTools;
+
     public function show()
     {
         $this->seo()->setTitle('Paramètres généraux');
@@ -29,7 +29,7 @@ class GeneralSettingsPageController extends Controller
         $settings->phoneNumber = $request->input('phoneNumber');
         $settings->facebook_url = $request->input('facebook_url') ?? '';
         $settings->save();
-        notify()->addNotification('success','Modifications enregistreées');
+        notify()->addNotification('success', 'Modifications enregistreées');
         return back();
     }
 }

@@ -24,7 +24,7 @@
                             @endif
                             @foreach ($optionGroup->mealOptions as $mealOption)
                                 <option value="{{ $mealOption->id }}">
-                                    {{ $mealOption->name }} {{ $mealOption->price ? "(+ ".formatPrice($mealOption->price).")":  '' }}
+                                    {{ $mealOption->name }} {{ $mealOption->price ? "(+ ".money($mealOption->price).")":  '' }}
                                 </option>
                             @endforeach
                         </select>
@@ -33,7 +33,7 @@
                             <div class="custom-control custom-checkbox">
                                 <input type="checkbox" class="custom-control-input" wire:model="selectedOptions.{{ $optionGroup->id }}.{{ $mealOption->id }}" name="selectedOptions.{{ $mealOption->id }}.{{ $mealOption->id }}" id="option{{ $mealOption->id }}">
                                 <label class="custom-control-label"
-                                       for="option{{ $mealOption->id }}">{{ $mealOption->name }} {{ $mealOption->price ? "(+ ".formatPrice($mealOption->price).")":  '' }}</label>
+                                       for="option{{ $mealOption->id }}">{{ $mealOption->name }} {{ $mealOption->price ? "(+ ".money($mealOption->price).")":  '' }}</label>
                             </div>
                         @endforeach
                     @endif
@@ -41,7 +41,7 @@
             @endif
 
         @endforeach
-            <strong class="h4 text-primary mb-0">{{ formatPrice($total) }}</strong>
+            <strong class="h4 text-primary mb-0">{{ money($total) }}</strong>
     </div>
     <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>

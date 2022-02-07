@@ -58,7 +58,7 @@
                                     @endif
                                 </td>
                                 <td>
-                                    {{formatPrice($item->price * $item->quantity)}}
+                                    {{money($item->price * $item->quantity)}}
                                 </td>
                             </tr>
                         @endforeach
@@ -76,12 +76,12 @@
                         <tr>
                             <th></th>
                             <th>Livraison</th>
-                            <th>{{ formatPrice($order->delivery)}}</th>
+                            <th>{{ money($order->delivery)}}</th>
                         </tr>
                         <tr>
                             <th></th>
                             <th>Total</th>
-                            <th>{{formatPrice($order->total)}}</th>
+                            <th>{{money($order->total)}}</th>
                         </tr>
                         </tfoot>
                     </table>

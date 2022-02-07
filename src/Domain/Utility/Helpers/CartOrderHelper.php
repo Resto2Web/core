@@ -49,7 +49,7 @@ class CartOrderHelper
         self::set('type', $type);
     }
 
-    public static function getType() : string
+    public static function getType(): string
     {
         $default = self::getDefaultOrderType();
         return self::get('type', $default);
@@ -75,16 +75,14 @@ class CartOrderHelper
         }
         return true;
     }
+
     public static function hasFreeDelivery(): bool
     {
-        if (self::getSettings()->hasFreeDeliveryMinimum && self::getSettings()->freeDeliveryMinimum <= Cart::subtotal() || self::getSettings()->deliveryPrice == 0) {
-            return true;
-        }
-        //TODO add freeDelivery Gift
-        return false;
+        return ((self::getSettings()->hasFreeDeliveryMinimum && self::getSettings()->freeDeliveryMinimum <= Cart::subtotal())
+            || self::getSettings()->deliveryPrice == 0);
     }
 
-    public static function getDeliveryPrice() : float
+    public static function getDeliveryPrice(): float
     {
         return GetDeliveryPriceAction::execute();
     }
@@ -101,28 +99,25 @@ class CartOrderHelper
     public static function getDefaultOrderType(): string
     {
         $default = self::DELIVERY;
-        if (self::getSettings()->onlyDelivery()) {
-            $default = self::DELIVERY;
-        }
         if (self::getSettings()->onlyTakeaway()) {
             $default = self::TAKEAWAY;
         }
         return $default;
     }
 
-    public static function getSettings() : MenuSettings
+    public static function getSettings(): MenuSettings
     {
         return app(MenuSettings::class);
     }
 
-    public static function get(string $key,$default = null)
+    public static function get(string $key, $default = null)
     {
-        return Session::get(self::prepareKey($key),$default);
+        return Session::get(self::prepareKey($key), $default);
     }
 
-    public static function set(string $key,$value)
+    public static function set(string $key, $value)
     {
-        Session::put(self::prepareKey($key),$value);
+        Session::put(self::prepareKey($key), $value);
     }
 
     public static function prepareKey(string $key): string

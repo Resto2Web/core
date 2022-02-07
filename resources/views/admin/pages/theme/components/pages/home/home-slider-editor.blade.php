@@ -43,9 +43,11 @@
                         </div>
                         <div class="mb-3">
                             {!! Form::label('image', 'Image', ['class' => 'control-label']) !!}
-                            @if ($homeSlideId && $homeSlide->getFirstMediaUrl('image') && !$showImageForm)
-                                <img src="{{ $homeSlide->getFirstMediaUrl('image') }}" alt="">
-                                <button wire:click.prevent="$set('showImageForm',true)" class="btn btn-primary btn-sm">Changer l'image</button>
+                            @if ($homeSlideId && !$showImageForm)
+                            <div class="text-end position-relative">
+                                <img src="{{ $homeSlide->image_url }}" class="rounded" alt="">
+                                <button wire:click.prevent="$set('showImageForm',true)" style="bottom: 0;right: 0" class="btn shadow m-3 position-absolute btn-primary btn-sm"><i class="fa fa-edit"></i> Changer l'image</button>
+                            </div>
                             @endif
                             @if ($showImageForm)
                                 @if ($image)

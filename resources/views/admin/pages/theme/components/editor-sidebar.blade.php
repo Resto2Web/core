@@ -17,6 +17,9 @@
         @switch($mode)
             @case('general')
             <h2>Général</h2>
+            <livewire:admin.theme.editor.general wire:key="generalEditorComponent"/>
+
+
 
             @break
 

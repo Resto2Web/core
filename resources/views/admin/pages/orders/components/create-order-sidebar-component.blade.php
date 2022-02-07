@@ -2,7 +2,7 @@
     @if (Cart::count() > 0)
         @if (Cart::subtotal() < $minimumOrder)
             <div class="alert alert-danger">
-                En dessous du minimum de commande {{ formatPrice($minimumOrder) }}
+                En dessous du minimum de commande {{ money($minimumOrder) }}
             </div>
         @endif
         @foreach (Cart::content() as $content)
@@ -43,11 +43,11 @@
             <div>
                 <div class="">
                     Livré
-                    ({{ \Resto2web\Core\Domain\Utility\Helpers\CartOrderHelper::hasFreeDelivery() ? 'gratuite' : formatPrice($deliveryPrice) }}
+                    ({{ \Resto2web\Core\Domain\Utility\Helpers\CartOrderHelper::hasFreeDelivery() ? 'gratuite' : money($deliveryPrice) }}
                     )
                     @if ($hasFreeDeliveryMinimum && !\Resto2web\Core\Domain\Utility\Helpers\CartOrderHelper::hasFreeDelivery())
                         <span class="font-sm text-muted">
-                                    livraison offerte à partir de {{ formatPrice($freeDeliveryMinimum) }}
+                                    livraison offerte à partir de {{ money($freeDeliveryMinimum) }}
                                 </span>
                     @endif
                 </div>
@@ -74,7 +74,7 @@
                 </div>
                 @if ($hasFreeDeliveryMinimum && !\Resto2web\Core\Domain\Utility\Helpers\CartOrderHelper::hasFreeDelivery())
                     <span class="font-sm text-muted">
-                                    livraison offerte à partir de {{ formatPrice($freeDeliveryMinimum) }}
+                                    livraison offerte à partir de {{ money($freeDeliveryMinimum) }}
                                 </span>
                 @endif
             </div>
@@ -83,7 +83,7 @@
                 <div class="d-flex justify-content-between">
                     <div>Livraison</div>
                     <div>
-                        {{ \Resto2web\Core\Domain\Utility\Helpers\CartOrderHelper::hasFreeDelivery() ? 'gratuite' : formatPrice($deliveryPrice) }}
+                        {{ \Resto2web\Core\Domain\Utility\Helpers\CartOrderHelper::hasFreeDelivery() ? 'gratuite' : money($deliveryPrice) }}
                     </div>
                 </div>
                     <div class="d-flex ">
@@ -112,7 +112,7 @@
 
                 @if ($hasFreeDeliveryMinimum && !\Resto2web\Core\Domain\Utility\Helpers\CartOrderHelper::hasFreeDelivery())
                     <span class="font-sm text-muted">
-                                    livraison offerte à partir de {{ formatPrice($freeDeliveryMinimum) }}
+                                    livraison offerte à partir de {{ money($freeDeliveryMinimum) }}
                                 </span>
                 @endif
             @endif
@@ -123,7 +123,7 @@
             <p>
                 TOTAL
             </p>
-            <p>{{ formatPrice($this->totalWithDelivery) }}</p>
+            <p>{{ money($this->totalWithDelivery) }}</p>
         </div>
     @else
         <p>La commande est actuellement vide</p>

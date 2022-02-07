@@ -8,6 +8,8 @@ use Artesaos\SEOTools\Traits\SEOTools;
 use Illuminate\Contracts\View\View;
 use Resto2web\Core\Common\Controllers\Controller;
 use Resto2web\Core\Domain\Meals\Models\MealCategory;
+use Resto2web\Core\Domain\Utility\Helpers\CartOrderHelper;
+use Resto2web\Core\Settings\MenuSettings;
 
 class MenuPageController extends Controller
 {

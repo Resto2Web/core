@@ -12,6 +12,14 @@
     <link rel="icon" href="/images/logos/favicon.png">
     <link rel="stylesheet" href="{{ mix('/css/theme1.css',"/vendor/".$theme) }}">
     @livewireStyles
+    <style>
+        :root {
+         --bs-primary: {{ app(\Resto2web\Core\Settings\ThemeSettings::class)->primary_color }};
+         --bs-primary-rgb: {{ implode(', ',sscanf(app(\Resto2web\Core\Settings\ThemeSettings::class)->primary_color, "#%02x%02x%02x")) }};
+         --bs-secondary: {{ app(\Resto2web\Core\Settings\ThemeSettings::class)->secondary_color }};
+         --bs-secondary-rgb: {{ implode(', ',sscanf(app(\Resto2web\Core\Settings\ThemeSettings::class)->secondary_color, "#%02x%02x%02x")) }};
+        }
+    </style>
 
 </head>
 

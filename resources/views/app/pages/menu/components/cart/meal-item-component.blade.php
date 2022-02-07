@@ -18,12 +18,12 @@
                             <p class="mb-0">+ {{ $displayOption->name }}</p>
                         @endif
                     @endforeach
-                    <strong>{{ formatPrice($cartItem->price * $cartItem->qty) }}</strong>
+                    <strong>{{ money($cartItem->price * $cartItem->qty) }}</strong>
                 </div>
             @else
                 <div class="align-self-center">
                     {{ $cartItem->qty }} x {{ $cartItem->model->name }}
-                    - <strong>{{ formatPrice($cartItem->price * $cartItem->qty) }}</strong>
+                    - <strong>{{ money($cartItem->price * $cartItem->qty) }}</strong>
                 </div>
             @endif
 
